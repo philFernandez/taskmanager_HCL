@@ -6,7 +6,6 @@ import com.hcl.taskmanager.data.abstraction.TaskDao;
 import com.hcl.taskmanager.exception.TaskNotFoundException;
 import com.hcl.taskmanager.model.Task;
 import com.hcl.taskmanager.repository.TaskRepository;
-import org.aspectj.weaver.tools.cache.AsynchronousFileCacheBacking.UpdateIndexCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

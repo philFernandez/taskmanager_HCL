@@ -64,7 +64,7 @@
                 </tr>
             </table>
             <div class="inline">
-                <form action="update" method="POST">
+                <form method="POST">
                     <input type="hidden" name="_method" value="PUT">
                     <button type="submit" class="btn btn-dark">Save Task</button>
                 </form>
