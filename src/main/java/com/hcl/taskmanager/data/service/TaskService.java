@@ -27,8 +27,12 @@ public class TaskService implements TaskDao {
     }
 
     @Override
-    public void deleteTask(Task task) {
-        repository.deleteById(task.getId());
+    public void deleteTask(String taskId) {
+        deleteTask(Long.valueOf(taskId));
+    }
+
+    public void deleteTask(Long taskId) {
+        repository.deleteById(taskId);
     }
 
     @Override

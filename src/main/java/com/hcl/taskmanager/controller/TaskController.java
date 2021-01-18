@@ -3,8 +3,10 @@ package com.hcl.taskmanager.controller;
 import com.hcl.taskmanager.data.service.TaskService;
 import com.hcl.taskmanager.model.Task;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,4 +37,9 @@ public class TaskController {
         return new ModelAndView("tasks", "taskList", taskService.displayTasks());
     }
 
+    @DeleteMapping("/delete/{id}")
+    public String deleteTask(@PathVariable String id) {
+        taskService.deleteTask(id);
+        return ("redirect:/task/tasks");
+    }
 }

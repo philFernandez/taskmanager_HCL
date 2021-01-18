@@ -30,8 +30,17 @@
                     <td>${task.severity}</td>
                 </tr>
             </table>
-            <a href="delete/${task.id}"><button class="btn btn-danger">Delete</button></a>
-            <a href="update/${task.id}"><button class="btn btn-success">Update</button></a>
+            <div class="inline">
+
+                <form action="delete/${task.id}" method="POST">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+                <form action="update/${task.id}" method="post">
+                    <button type="submit" class="btn btn-success">Update</button>
+                </form>
+
+            </div>
             <br><br>
         </c:forEach>
     </div>
