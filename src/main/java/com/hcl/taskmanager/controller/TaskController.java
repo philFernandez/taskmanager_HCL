@@ -27,7 +27,12 @@ public class TaskController {
     @PostMapping("/create")
     public String saveNewTask(@ModelAttribute Task task) {
         taskService.createTask(task);
-        return "tasks";
+        return ("redirect:/task/tasks");
     }
-    
+
+    @GetMapping("/tasks")
+    public ModelAndView allTasks() {
+        return new ModelAndView("tasks", "taskList", taskService.displayTasks());
+    }
+
 }
