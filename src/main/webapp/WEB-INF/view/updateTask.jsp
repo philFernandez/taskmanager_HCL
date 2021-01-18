@@ -16,7 +16,6 @@
     </div>
     <div class="main">
         <form:form modelAttribute="task">
-
             <table class="table">
                 <tr>
                     <td>

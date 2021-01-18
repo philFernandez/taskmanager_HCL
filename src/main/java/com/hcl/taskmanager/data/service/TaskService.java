@@ -18,13 +18,12 @@ public class TaskService implements TaskDao {
     public void createTask(String taskName, String startDate, String endDate,
             String description, String severity) {
         Task task = new Task(taskName, startDate, endDate, description, severity);
-        repository.save(task);
+        createTask(task);
     }
 
     @Override
     public void createTask(Task task) {
-        createTask(task.getTaskName(), task.getStartDate(), task.getEndDate(),
-                task.getDescription(), task.getSeverity());
+        repository.save(task);
     }
 
     @Override
