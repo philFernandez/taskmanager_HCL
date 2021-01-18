@@ -18,12 +18,14 @@
             <h1 class="display-6">${task.taskName}</h1>
             <table class="table">
                 <tr class="table-dark">
+                    <th>Task ID</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
                     <th>Severity</th>
                 </tr>
                 <tr>
+                    <td>${task.id}</td>
                     <td>${task.startDate}</td>
                     <td>${task.endDate}</td>
                     <td>${task.description}</td>
