@@ -1,5 +1,7 @@
 package com.hcl.taskmanager.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,6 +16,7 @@ import lombok.ToString;
 @ToString
 @Entity
 public class Task {
+    private final static List<Task> tasks = new ArrayList<>();
     private @Id @GeneratedValue Long id;
     private String taskName;
     private String startDate;
@@ -28,6 +31,14 @@ public class Task {
         this.endDate = endDate;
         this.description = description;
         this.severity = severity;
+    }
+
+    public static boolean addTask(Task task) {
+        return tasks.add(task);
+    }
+
+    public static boolean removeTask(Task task) {
+        return tasks.remove(task);
     }
     
 }
