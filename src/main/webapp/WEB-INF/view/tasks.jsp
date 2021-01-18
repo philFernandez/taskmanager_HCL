@@ -18,21 +18,21 @@
             <h1 class="display-6">${task.taskName}</h1>
             <table class="table">
                 <tr class="table-dark">
-                    <th>Task ID</th>
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
                     <th>Severity</th>
                 </tr>
                 <tr>
-                    <td>${task.id}</td>
                     <td>${task.startDate}</td>
                     <td>${task.endDate}</td>
                     <td>${task.description}</td>
                     <td>${task.severity}</td>
                 </tr>
             </table>
-            <br>
+            <a href="delete/${task.id}"><button class="btn btn-danger">Delete</button></a>
+            <a href="update/${task.id}"><button class="btn btn-success">Update</button></a>
+            <br><br>
         </c:forEach>
     </div>
 </body>
