@@ -49,6 +49,18 @@
                         <form:textarea path="description" />
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        <form:label path="severity">Severity</form:label>
+                    </td>
+                    <td>
+                        <form:select path="severity">
+                            <form:option value="Low" label="Low" />
+                            <form:option value="Medium" label="Medium" />
+                            <form:option value="High" label="High" />
+                        </form:select>
+                    </td>
+                </tr>
             </table>
             <button type="submit" class="btn btn-dark">Save Task</button>
 
