@@ -45,6 +45,15 @@ public class TaskService implements TaskDao {
     }
 
     @Override
+    public Task readTask(String taskId) {
+        return readTask(Long.valueOf(taskId));
+    }
+
+    public Task readTask(Long taskId) {
+        return repository.findById(taskId).get();
+    }
+
+    @Override
     public List<Task> displayTasks() {
         List<Task> tasks = repository.findAll();
         return tasks;

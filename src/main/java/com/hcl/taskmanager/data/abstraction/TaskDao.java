@@ -5,7 +5,8 @@ import com.hcl.taskmanager.model.Task;
 
 public interface TaskDao {
     void createTask(Task task);
-    void deleteTask(String taskId);
+    Task readTask(String taskId);
     void updateTask(Task task);
+    void deleteTask(String taskId);
     List<Task> displayTasks();
 }

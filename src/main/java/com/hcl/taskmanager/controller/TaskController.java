@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 
 @Controller
@@ -41,5 +42,14 @@ public class TaskController {
     public String deleteTask(@PathVariable String id) {
         taskService.deleteTask(id);
         return ("redirect:/task/tasks");
+    }
+
+    // make a form where you can update 
+    // then you need a PutMapping to do the update
+    // look in tasks.jsp about the _method=PUT
+    @GetMapping("/update/{id}")
+    public ModelAndView editTask(@PathVariable String id) {
+        Task task = taskService.readTask(id);
+        return new ModelAndView("updateTask", "task", task);
     }
 }
