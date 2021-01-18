@@ -46,7 +46,7 @@
                         <form:label path="description">Description</form:label>
                     </td>
                     <td>
-                        <form:textarea path="description" maxlength="255" />
+                        <form:textarea path="description" maxlength="100" />
                     </td>
                 </tr>
                 <tr>

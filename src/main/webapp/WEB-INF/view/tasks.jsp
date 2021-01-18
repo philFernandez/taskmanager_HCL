@@ -17,7 +17,7 @@
         <c:forEach var="task" items="${taskList}">
             <h1 class="display-6">${task.taskName}</h1>
             <table class="table">
-                <tr>
+                <tr class="table-dark">
                     <th>Start Date</th>
                     <th>End Date</th>
                     <th>Description</th>
