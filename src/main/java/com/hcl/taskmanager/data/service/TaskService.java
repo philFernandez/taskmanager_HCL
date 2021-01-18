@@ -15,7 +15,6 @@ public class TaskService implements TaskDao {
     public void createTask(String taskName, String startDate, String endDate,
             String description, String severity) {
         Task task = new Task(taskName, startDate, endDate, description, severity);
-        Task.addTask(task);
         repository.save(task);
     }
 
@@ -27,7 +26,6 @@ public class TaskService implements TaskDao {
 
     @Override
     public void deleteTask(Task task) {
-        Task.removeTask(task);
         repository.deleteById(task.getId());
     }
 
@@ -42,7 +40,7 @@ public class TaskService implements TaskDao {
 
     @Override
     public List<Task> displayTasks() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Task> tasks = repository.findAll();
+        return tasks;
     }
 }
