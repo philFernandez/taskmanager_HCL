@@ -1,10 +1,12 @@
 package com.hcl.taskmanager.data.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.hcl.taskmanager.data.abstraction.TaskDao;
 import com.hcl.taskmanager.exception.TaskNotFoundException;
 import com.hcl.taskmanager.model.Task;
 import com.hcl.taskmanager.repository.TaskRepository;
+import org.aspectj.weaver.tools.cache.AsynchronousFileCacheBacking.UpdateIndexCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,8 +39,15 @@ public class TaskService implements TaskDao {
 
     @Override
     public void updateTask(Task task) {
+        Task updatedTask = new Task();
+        updatedTask.setId(task.getId());
+        updatedTask.setTaskName(task.getTaskName());
+        updatedTask.setStartDate(task.getStartDate());
+        updatedTask.setEndDate(task.getEndDate());
+        updatedTask.setDescription(task.getDescription());
+        updatedTask.setSeverity(task.getSeverity());
         if(repository.existsById(task.getId())) {
-            repository.save(task);
+            repository.save(updatedTask);
         } else {
             throw new TaskNotFoundException(task.getId());
         }
@@ -55,7 +64,8 @@ public class TaskService implements TaskDao {
 
     @Override
     public List<Task> displayTasks() {
-        List<Task> tasks = repository.findAll();
+        List<Task> tasks = new ArrayList<>();
+        repository.findAll().forEach(tasks::add);
         return tasks;
     }
 }

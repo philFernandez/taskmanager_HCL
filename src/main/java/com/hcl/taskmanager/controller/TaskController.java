@@ -3,6 +3,7 @@ package com.hcl.taskmanager.controller;
 import com.hcl.taskmanager.data.service.TaskService;
 import com.hcl.taskmanager.model.Task;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -51,5 +52,11 @@ public class TaskController {
     public ModelAndView editTask(@PathVariable String id) {
         Task task = taskService.readTask(id);
         return new ModelAndView("updateTask", "task", task);
+    }
+
+    @PutMapping("/update/{id}")
+    public String updateTask(@ModelAttribute Task task) {
+        taskService.updateTask(task);
+        return ("redirect:/task/tasks");
     }
 }
