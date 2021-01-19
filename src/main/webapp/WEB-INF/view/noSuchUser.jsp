@@ -19,7 +19,7 @@
         <h5>
             ${noUserException}
         </h5>
-        <a href="register"><button class="btn btn-primary">Try Again</button></a>
+        <a href=""><button class="btn btn-primary">Try Again</button></a>
     </div>
 </body>
 </html>

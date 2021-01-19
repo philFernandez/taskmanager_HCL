@@ -6,11 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/user")
 public class UserController {
     private final UserService userService;
 
@@ -29,12 +27,12 @@ public class UserController {
         return ("redirect:/user/login");
     }
 
-    @GetMapping("/login") 
+    @GetMapping("/") // login page is root
     public ModelAndView login() {
         return new ModelAndView("login", "user", new User());
     }
 
-    @PostMapping("/login")
+    @PostMapping("/") // post for login page at root
     public String validateLogin(@ModelAttribute User user) {
         if(userService.authenticate(user)) {
             return ("redirect:/task/create");

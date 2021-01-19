@@ -24,6 +24,7 @@
             <form:input path="password" type="password" class="form-control" required="required"/>
             <br>
             <button type="submit" class="btn btn-success">Login</button>
+            <a href="register" class="btn btn-primary">New User</a>
         </form:form>
     </div>
 </body>
