@@ -37,7 +37,7 @@ public class UserController {
     @PostMapping("/login")
     public String validateLogin(@ModelAttribute User user) {
         if(userService.authenticate(user)) {
-            return ("redirect:/task/tasks");
+            return ("redirect:/task/create");
         }
         else {
             return "invalidLogin";
