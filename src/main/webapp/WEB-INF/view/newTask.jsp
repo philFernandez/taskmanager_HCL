@@ -63,6 +63,7 @@
                 </tr>
             </table>
             <button type="submit" class="btn btn-dark">Save Task</button>
+            <a href="tasks" class="btn btn-primary">List Tasks</a>
 
         </form:form>
 
