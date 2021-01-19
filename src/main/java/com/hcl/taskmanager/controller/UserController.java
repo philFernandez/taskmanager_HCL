@@ -34,4 +34,14 @@ public class UserController {
         return new ModelAndView("login", "user", new User());
     }
 
+    @PostMapping("/login")
+    public String validateLogin(@ModelAttribute User user) {
+        if(userService.authenticate(user)) {
+            return ("redirect:/task/tasks");
+        }
+        else {
+            return "invalidLogin";
+        }
+    }
+
 }

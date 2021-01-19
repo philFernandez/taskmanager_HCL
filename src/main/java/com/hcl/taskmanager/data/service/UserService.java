@@ -2,6 +2,7 @@ package com.hcl.taskmanager.data.service;
 
 import java.util.Optional;
 import com.hcl.taskmanager.data.abstraction.UserDao;
+import com.hcl.taskmanager.exception.NoSuchUserException;
 import com.hcl.taskmanager.exception.UserNameNotAvailableException;
 import com.hcl.taskmanager.model.User;
 import com.hcl.taskmanager.repository.UserRepository;
@@ -30,7 +31,12 @@ public class UserService implements UserDao {
 
     @Override
     public boolean authenticate(User user) {
-        return false;
+        Optional<User> userLoggingIn = repository.findById(user.getUserName());
+        if(userLoggingIn.isPresent()) {
+            return user.getPassword().equals(userLoggingIn.get().getPassword());
+        } else {
+            throw new NoSuchUserException(user.getUserName());
+        }
     }
     
 }
