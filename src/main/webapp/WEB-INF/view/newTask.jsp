@@ -13,7 +13,7 @@
     <div align="center" class="task-header">
         <h1 class="display-2">New Task</h1>
     </div>
-    <div class="main">
+    <div class="container-fluid">
         <form:form modelAttribute="task">
 
             <table class="table">

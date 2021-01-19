@@ -15,38 +15,19 @@
         <h1 class="display-2">Register</h1>
     </div>
     <br>
-    <div class="main">
+    <div class="container">
         <form:form modelAttribute="user" class="form-control">
-
-            <table class="table">
-                <tr>
-                    <td>
-                        <form:label path="userName" class="form-label">User Name</form:label>
-                    </td>
-                    <td>
-                        <form:input path="userName" type="text" class="form-control" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form:label path="email" class="form-label">Email</form:label>
-                    </td>
-                    <td>
-                        <form:input path="email" type="email" class="form-control" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form:label path="password" class="form-label">Password</form:label>
-                    </td>
-                    <td>
-                        <form:input path="password" type="password" class="form-control" />
-                    </td>
-                </tr>
-            </table>
-            <button type="submit" class="btn btn-dark">Submit</button>
+            <form:label path="userName" class="form-label">User Name</form:label>
+            <form:input path="userName" type="text" class="form-control" />
+            <br>
+            <form:label path="email" class="form-label">Email</form:label>
+            <form:input path="email" type="email" class="form-control" />
+            <br>
+            <form:label path="password" class="form-label">Password</form:label>
+            <form:input path="password" type="password" class="form-control" />
+            <br>
+            <button type="submit" class="btn btn-success">Register</button>
         </form:form>
-
     </div>
 </body>
 </html>
