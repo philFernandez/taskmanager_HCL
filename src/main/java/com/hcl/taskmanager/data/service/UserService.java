@@ -24,7 +24,6 @@ public class UserService implements UserDao {
 
     @Override
     public boolean authenticate(User user) {
-        // TODO Auto-generated method stub
         return false;
     }
     
