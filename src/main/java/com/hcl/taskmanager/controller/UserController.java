@@ -24,7 +24,7 @@ public class UserController {
     @PostMapping("/register")
     public String addUser(@ModelAttribute User user) {
         userService.register(user);
-        return ("redirect:/user/login");
+        return ("redirect:/");
     }
 
     @GetMapping("/") // login page is root
