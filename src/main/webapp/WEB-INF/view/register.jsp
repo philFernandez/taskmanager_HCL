@@ -18,13 +18,13 @@
     <div class="container">
         <form:form modelAttribute="user" class="form-control">
             <form:label path="userName" class="form-label">User Name</form:label>
-            <form:input path="userName" type="text" class="form-control" />
+            <form:input path="userName" type="text" class="form-control" required="required"/>
             <br>
             <form:label path="email" class="form-label">Email</form:label>
-            <form:input path="email" type="email" class="form-control" />
+            <form:input path="email" type="email" class="form-control" required="required"/>
             <br>
             <form:label path="password" class="form-label">Password</form:label>
-            <form:input path="password" type="password" class="form-control" />
+            <form:input path="password" type="password" class="form-control" required="required"/>
             <br>
             <button type="submit" class="btn btn-success">Register</button>
         </form:form>
