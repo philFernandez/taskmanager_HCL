@@ -5,15 +5,16 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 @ControllerAdvice
 public class UserNameNotAvailableAdvice {
 
-    @ResponseBody
     @ExceptionHandler(UserNameNotAvailableException.class)
     @ResponseStatus(HttpStatus.CONFLICT)
-    public String userNameNotAvailableHandler(UserNameNotAvailableException e) {
-        return e.getMessage();
+    public ModelAndView userNameNotAvailableHandler(UserNameNotAvailableException e) {
+        // return e.getMessage();
+        return new ModelAndView("usernameTaken", "usernameException", e.getMessage());
     }
     
 }
