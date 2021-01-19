@@ -1,6 +1,8 @@
 package com.hcl.taskmanager.data.service;
 
+import java.util.Optional;
 import com.hcl.taskmanager.data.abstraction.UserDao;
+import com.hcl.taskmanager.exception.UserNameNotAvailableException;
 import com.hcl.taskmanager.model.User;
 import com.hcl.taskmanager.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +21,11 @@ public class UserService implements UserDao {
 
     @Override
     public void register(User user) {
-        repository.save(user);
+        if(repository.findById(user.getUserName()).isPresent()) {
+            throw new UserNameNotAvailableException(user.getUserName());
+        } else {
+            repository.save(user);
+        }
     }
 
     @Override
