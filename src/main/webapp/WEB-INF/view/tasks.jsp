@@ -42,6 +42,10 @@
             </div>
             <br><br>
         </c:forEach>
+        <hr>
+        <div align="center">
+            <a href="create" class="btn btn-primary">New Task</a>
+        </div>
     </div>
 </body>
 </html>
